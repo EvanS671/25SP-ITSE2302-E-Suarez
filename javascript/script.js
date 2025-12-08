@@ -1,20 +1,91 @@
-var First = "Evan";
-var Last = "Suarez";
-var sentence =
-  "This is about my cat that I love very much named his name is Apollo and is around 2 years old.";
-var theTruth = true;
-var num1 = "10";
-var num2 = "15";
-var num3 = "25";
-var length = sentence.length;
+// Arrays
+let extras = document.querySelectorAll(".extra");
+let summaryBox = document.getElementById("orderSummary");
 
-console.log(First + Last);
-console.log(sentence);
-console.log("The length of my sentence is: " + length + " characters long");
-console.log("The sum of " + num1 + " and " + num2 + " is equal to " + num3);
-console.log(
-  "The variable theTruth is storing the value " +
-    theTruth +
-    " The data type of theTruth is " +
-    typeof theTruth
-);
+function calculateExtras(extraElements) {
+  let total = 0;
+  // Loop through each checkbox and add its value if selected
+  extraElements.forEach((item) => {
+    if (item.checked) {
+      total += +item.value; 
+    }
+  });
+
+  return total;
+}
+
+// Event Listener used for functions and retrieve the id for submit
+document.getElementById("shirtForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  try {
+    // Get user's first name, last name, email, and quantity
+    let first = document.getElementById("firstName").value;
+    let last = document.getElementById("lastName").value;
+    let email = document.getElementById("email").value;
+    let quantity = +document.getElementById("quantity").value; 
+
+    // Validate inputs
+    if (first === "" || last === "" || email === "" || quantity < 1) {
+      alert("Please fill out all fields correctly.");
+      return;
+    }
+
+    let size = document.querySelector("input[name='size']:checked");
+    // Alert if user did not select a shirt size
+    if (!size) {
+      alert("Please select a shirt size.");
+      return;
+    }
+
+    // Calculate totals
+    let basePrice = +size.value; 
+    let extraCost = calculateExtras(extras);
+    let total = (basePrice + extraCost) * quantity;
+
+    let sizeName = "";
+    // Switch to assign size names based on base price
+    switch (basePrice) {
+      case 15:
+        sizeName = "Small";
+        break;
+      case 18:
+        sizeName = "Medium";
+        break;
+      case 20:
+        sizeName = "Large";
+        break;
+    }
+
+    // Display order summary
+    summaryBox.style.display = "block";
+    summaryBox.innerHTML =
+      "<h2>Order Summary</h2>" +
+      "<p>Name: " +
+      first +
+      " " +
+      last +
+      "</p>" +
+      "<p>Email: " +
+      email +
+      "</p>" +
+      "<p>Shirt color: " +
+      color.value +
+      "</p>" +
+      "<p>Shirt Size: " +
+      sizeName +
+      "</p>" +
+      "<p>Extras Cost: $" +
+      extraCost +
+      "</p>" +
+      "<p>Quantity: " +
+      quantity +
+      "</p>" +
+      "<h3>Total Price: $" +
+      total +
+      "</h3>";
+  } catch (error) {
+    alert("Something went wrong. Please try again.");
+    console.log(error);
+  }
+});
