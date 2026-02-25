@@ -1,32 +1,33 @@
+/* My body CSS with background color font size and word spacing*/
 body {
   background-color: #a5d8ff;
   font-size: 16px;
   word-spacing: 2px;
 }
-
+/* This is my flex for the paragraph  and background color*/
 p {
   display: flex;
   justify-content: left;
-  width: 600px;
+  width: 400px;
   word-spacing: 2px;
   background-color: #f6f0ed;
-  padding: 5px;
+
   margin: auto;
 }
-
+/* this carrys the font weight and padding */
 h1 {
   display: flex;
   font-weight: bold;
   padding-top: 1.5rem;
   padding-bottom: 1.2rem;
 }
-
+/* This is my img CSS */
 img {
   display: flex;
   justify-content: center;
   margin: auto;
 }
-
+/*This is CSS for my navigations*/
 nav {
   display: flex;
   justify-content: space-around;
@@ -39,17 +40,28 @@ nav {
   margin: 10px;
   background-color: #f6f0ed;
 }
-
+/*for color on clicked links*/
 a {
   text-decoration: none;
   color: #a159ff;
 }
-
+/*when user hovers over links*/
 a:hover {
   color: #4753ff;
 }
-
+/*For my h1 class*/
 .apple {
   display: flex;
   justify-content: center;
+}
+/* for my contact page's navigation*/
+.contact {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+/*for my contact pages phone number email and office hours*/
+.consts {
+  display: flex;
+  justify-content: flex-start;
 }
