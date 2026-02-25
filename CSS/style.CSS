@@ -3,17 +3,15 @@ body {
   font-size: 16px;
   word-spacing: 2px;
 }
-
 p {
   display: flex;
   justify-content: left;
-  width: 600px;
+  width: 400px;
   word-spacing: 2px;
   background-color: #f6f0ed;
-  padding: 5px;
+
   margin: auto;
 }
-
 h1 {
   display: flex;
   font-weight: bold;
@@ -26,7 +24,6 @@ img {
   justify-content: center;
   margin: auto;
 }
-
 nav {
   display: flex;
   justify-content: space-around;
@@ -39,12 +36,10 @@ nav {
   margin: 10px;
   background-color: #f6f0ed;
 }
-
 a {
   text-decoration: none;
   color: #a159ff;
 }
-
 a:hover {
   color: #4753ff;
 }
